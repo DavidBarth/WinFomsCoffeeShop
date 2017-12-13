@@ -4,15 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6f7511149cf346ac93d24337aceee900" Name="Diagram1">
-        <EntityTypeShape EntityType="CoffeeShopDatabaseModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="CoffeeShopDatabaseModel.ProductType" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CoffeeShopDatabaseModel.sysdiagram" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CoffeeShopDatabaseModel.Transaction" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CoffeeShopDatabaseModel.TransactionItem" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <AssociationConnector Association="CoffeeShopDatabaseModel.FK_Product_ProductType" ManuallyRouted="false" />
-        <AssociationConnector Association="CoffeeShopDatabaseModel.FK_TransactionItem_Product" ManuallyRouted="false" />
-        <AssociationConnector Association="CoffeeShopDatabaseModel.FK_TransactionItem_Transaction" ManuallyRouted="false" />
+      <Diagram DiagramId="7f6cc8c8927b4e338aa93b540e47cc81" Name="Diagram1">
+        <EntityTypeShape EntityType="CoffeeShopDBModel.sysdiagram" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoffeeShopDBModel.tblProduct" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoffeeShopDBModel.tblProductType" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoffeeShopDBModel.tblTransaction" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CoffeeShopDBModel.tblTransactionItem" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="CoffeeShopDBModel.FK_tblProduct_tblProductType" ManuallyRouted="false" />
+        <AssociationConnector Association="CoffeeShopDBModel.FK_tblTransactionItem_tblProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="CoffeeShopDBModel.FK_tblTransactionItem_tblTransaction" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

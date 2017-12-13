@@ -1,22 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="CoffeeShopDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="Product">
-    <Key>
-      <PropertyRef Name="ProductID" />
-    </Key>
-    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ProductType" Type="int" />
-    <Property Name="Description" Type="nvarchar(max)" />
-    <Property Name="Price" Type="money" />
-    <Property Name="Image" Type="image" />
-  </EntityType>
-  <EntityType Name="ProductType">
-    <Key>
-      <PropertyRef Name="ProductType" />
-    </Key>
-    <Property Name="ProductType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Description" Type="nvarchar(max)" />
-  </EntityType>
+<Schema Namespace="CoffeeShopDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="sysdiagrams">
     <Key>
       <PropertyRef Name="diagram_id" />
@@ -27,14 +10,31 @@
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
-  <EntityType Name="Transaction">
+  <EntityType Name="tblProduct">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductType" Type="int" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Price" Type="money" />
+    <Property Name="Image" Type="image" />
+  </EntityType>
+  <EntityType Name="tblProductType">
+    <Key>
+      <PropertyRef Name="ProductType" />
+    </Key>
+    <Property Name="ProductType" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tblTransaction">
     <Key>
       <PropertyRef Name="TransactionID" />
     </Key>
     <Property Name="TransactionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TransactionDate" Type="datetime" />
   </EntityType>
-  <EntityType Name="TransactionItem">
+  <EntityType Name="tblTransactionItem">
     <Key>
       <PropertyRef Name="TransactionItemID" />
     </Key>
@@ -42,59 +42,59 @@
     <Property Name="TransactionID" Type="int" />
     <Property Name="ProductID" Type="int" />
   </EntityType>
-  <Association Name="FK_Product_ProductType">
-    <End Role="ProductType" Type="Self.ProductType" Multiplicity="0..1" />
-    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+  <Association Name="FK_tblProduct_tblProductType">
+    <End Role="tblProductType" Type="Self.tblProductType" Multiplicity="0..1" />
+    <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="ProductType">
+      <Principal Role="tblProductType">
         <PropertyRef Name="ProductType" />
       </Principal>
-      <Dependent Role="Product">
+      <Dependent Role="tblProduct">
         <PropertyRef Name="ProductType" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_TransactionItem_Product">
-    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
-    <End Role="TransactionItem" Type="Self.TransactionItem" Multiplicity="*" />
+  <Association Name="FK_tblTransactionItem_tblProduct">
+    <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="0..1" />
+    <End Role="tblTransactionItem" Type="Self.tblTransactionItem" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Product">
+      <Principal Role="tblProduct">
         <PropertyRef Name="ProductID" />
       </Principal>
-      <Dependent Role="TransactionItem">
+      <Dependent Role="tblTransactionItem">
         <PropertyRef Name="ProductID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_TransactionItem_Transaction">
-    <End Role="Transaction" Type="Self.Transaction" Multiplicity="0..1" />
-    <End Role="TransactionItem" Type="Self.TransactionItem" Multiplicity="*" />
+  <Association Name="FK_tblTransactionItem_tblTransaction">
+    <End Role="tblTransaction" Type="Self.tblTransaction" Multiplicity="0..1" />
+    <End Role="tblTransactionItem" Type="Self.tblTransactionItem" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Transaction">
+      <Principal Role="tblTransaction">
         <PropertyRef Name="TransactionID" />
       </Principal>
-      <Dependent Role="TransactionItem">
+      <Dependent Role="tblTransactionItem">
         <PropertyRef Name="TransactionID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="CoffeeShopDatabaseModelStoreContainer">
-    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ProductType" EntityType="Self.ProductType" Schema="dbo" store:Type="Tables" />
+  <EntityContainer Name="CoffeeShopDBModelStoreContainer">
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TransactionItem" EntityType="Self.TransactionItem" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_Product_ProductType" Association="Self.FK_Product_ProductType">
-      <End Role="ProductType" EntitySet="ProductType" />
-      <End Role="Product" EntitySet="Product" />
+    <EntitySet Name="tblProduct" EntityType="Self.tblProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProductType" EntityType="Self.tblProductType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblTransaction" EntityType="Self.tblTransaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblTransactionItem" EntityType="Self.tblTransactionItem" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tblProduct_tblProductType" Association="Self.FK_tblProduct_tblProductType">
+      <End Role="tblProductType" EntitySet="tblProductType" />
+      <End Role="tblProduct" EntitySet="tblProduct" />
     </AssociationSet>
-    <AssociationSet Name="FK_TransactionItem_Product" Association="Self.FK_TransactionItem_Product">
-      <End Role="Product" EntitySet="Product" />
-      <End Role="TransactionItem" EntitySet="TransactionItem" />
+    <AssociationSet Name="FK_tblTransactionItem_tblProduct" Association="Self.FK_tblTransactionItem_tblProduct">
+      <End Role="tblProduct" EntitySet="tblProduct" />
+      <End Role="tblTransactionItem" EntitySet="tblTransactionItem" />
     </AssociationSet>
-    <AssociationSet Name="FK_TransactionItem_Transaction" Association="Self.FK_TransactionItem_Transaction">
-      <End Role="Transaction" EntitySet="Transaction" />
-      <End Role="TransactionItem" EntitySet="TransactionItem" />
+    <AssociationSet Name="FK_tblTransactionItem_tblTransaction" Association="Self.FK_tblTransactionItem_tblTransaction">
+      <End Role="tblTransaction" EntitySet="tblTransaction" />
+      <End Role="tblTransactionItem" EntitySet="tblTransactionItem" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

@@ -15,5 +15,11 @@ namespace CoffeeShop
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddProductForm addProductForm = new AddProductForm();
+            addProductForm.ShowDialog();
+        }
     }
 }
