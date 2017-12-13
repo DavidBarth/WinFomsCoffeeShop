@@ -34,7 +34,7 @@
             this.imageLabel = new System.Windows.Forms.Label();
             this.DescriptionTextBox = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.categoryCombobox = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.saveButton = new System.Windows.Forms.Button();
             this.uploadButton = new System.Windows.Forms.Button();
@@ -91,13 +91,13 @@
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 5;
             // 
-            // comboBox1
+            // categoryCombobox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(73, 97);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 6;
+            this.categoryCombobox.FormattingEnabled = true;
+            this.categoryCombobox.Location = new System.Drawing.Point(73, 97);
+            this.categoryCombobox.Name = "categoryCombobox";
+            this.categoryCombobox.Size = new System.Drawing.Size(121, 21);
+            this.categoryCombobox.TabIndex = 6;
             // 
             // pictureBox1
             // 
@@ -133,7 +133,7 @@
             this.Controls.Add(this.uploadButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.categoryCombobox);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.DescriptionTextBox);
             this.Controls.Add(this.imageLabel);
@@ -156,7 +156,7 @@
         private System.Windows.Forms.Label imageLabel;
         private System.Windows.Forms.TextBox DescriptionTextBox;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox categoryCombobox;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button uploadButton;

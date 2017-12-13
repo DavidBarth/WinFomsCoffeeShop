@@ -1,19 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace CoffeeShop
 {
     public partial class AddProductForm : Form
     {
+        private CoffeeShopDatabaseEntities entities = new CoffeeShopDatabaseEntities();
+
         public AddProductForm()
         {
             InitializeComponent();
+            
+            categoryCombobox.ValueMember = "ProductType";
+            categoryCombobox.DataSource = entities.ProductTypes;
+            categoryCombobox.DisplayMember = "Description";
+            
+
+
         }
     }
 }
