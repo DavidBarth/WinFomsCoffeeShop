@@ -81,20 +81,20 @@
             // 
             this.DescriptionTextBox.Location = new System.Drawing.Point(73, 13);
             this.DescriptionTextBox.Name = "DescriptionTextBox";
-            this.DescriptionTextBox.Size = new System.Drawing.Size(100, 20);
+            this.DescriptionTextBox.Size = new System.Drawing.Size(116, 20);
             this.DescriptionTextBox.TabIndex = 4;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(73, 61);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.Size = new System.Drawing.Size(116, 20);
             this.textBox2.TabIndex = 5;
             // 
             // categoryCombobox
             // 
             this.categoryCombobox.FormattingEnabled = true;
-            this.categoryCombobox.Location = new System.Drawing.Point(73, 97);
+            this.categoryCombobox.Location = new System.Drawing.Point(68, 103);
             this.categoryCombobox.Name = "categoryCombobox";
             this.categoryCombobox.Size = new System.Drawing.Size(121, 21);
             this.categoryCombobox.TabIndex = 6;
@@ -103,13 +103,13 @@
             // 
             this.pictureBox1.Location = new System.Drawing.Point(73, 161);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(320, 134);
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(73, 284);
+            this.saveButton.Location = new System.Drawing.Point(318, 311);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 8;
@@ -118,7 +118,7 @@
             // 
             // uploadButton
             // 
-            this.uploadButton.Location = new System.Drawing.Point(202, 161);
+            this.uploadButton.Location = new System.Drawing.Point(73, 311);
             this.uploadButton.Name = "uploadButton";
             this.uploadButton.Size = new System.Drawing.Size(75, 23);
             this.uploadButton.TabIndex = 9;
