@@ -124,6 +124,7 @@
             this.uploadButton.TabIndex = 9;
             this.uploadButton.Text = "Upload";
             this.uploadButton.UseVisualStyleBackColor = true;
+            this.uploadButton.Click += new System.EventHandler(this.uploadButton_Click);
             // 
             // AddProductForm
             // 
