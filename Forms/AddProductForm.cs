@@ -41,5 +41,19 @@ namespace CoffeeShop
                 pictureBox1.Image = Image.FromStream(memoryStream);
             }
         }
+
+        private void saveButton_Click(object sender, System.EventArgs e)
+        {
+            tblProduct productToSave = new tblProduct();
+            productToSave.Description = DescriptionTextBox.Text;
+            productToSave.Price = decimal.Parse(priceTextBox.Text);
+            productToSave.Image = _dataBlob;
+            productToSave.ProductType = (int)categoryCombobox.SelectedValue;
+
+
+
+            _entities.tblProducts.Add(productToSave);
+            _entities.SaveChanges();
+        }
     }
 }

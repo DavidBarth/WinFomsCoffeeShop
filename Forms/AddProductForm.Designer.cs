@@ -33,7 +33,7 @@
             this.categoryLabel = new System.Windows.Forms.Label();
             this.imageLabel = new System.Windows.Forms.Label();
             this.DescriptionTextBox = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.priceTextBox = new System.Windows.Forms.TextBox();
             this.categoryCombobox = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.saveButton = new System.Windows.Forms.Button();
@@ -84,12 +84,12 @@
             this.DescriptionTextBox.Size = new System.Drawing.Size(116, 20);
             this.DescriptionTextBox.TabIndex = 4;
             // 
-            // textBox2
+            // priceTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(73, 61);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(116, 20);
-            this.textBox2.TabIndex = 5;
+            this.priceTextBox.Location = new System.Drawing.Point(73, 61);
+            this.priceTextBox.Name = "priceTextBox";
+            this.priceTextBox.Size = new System.Drawing.Size(116, 20);
+            this.priceTextBox.TabIndex = 5;
             // 
             // categoryCombobox
             // 
@@ -115,6 +115,7 @@
             this.saveButton.TabIndex = 8;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // uploadButton
             // 
@@ -135,7 +136,7 @@
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.categoryCombobox);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.priceTextBox);
             this.Controls.Add(this.DescriptionTextBox);
             this.Controls.Add(this.imageLabel);
             this.Controls.Add(this.categoryLabel);
@@ -156,7 +157,7 @@
         private System.Windows.Forms.Label categoryLabel;
         private System.Windows.Forms.Label imageLabel;
         private System.Windows.Forms.TextBox DescriptionTextBox;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox priceTextBox;
         private System.Windows.Forms.ComboBox categoryCombobox;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button saveButton;
