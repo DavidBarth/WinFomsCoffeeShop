@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="CoffeeShopDBModelStoreContainer" CdmEntityContainer="CoffeeShopDBEntities">
+  <EntityContainerMapping StorageEntityContainer="CoffeeModelStoreContainer" CdmEntityContainer="Database">
     <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="CoffeeShopDBModel.sysdiagram">
+      <EntityTypeMapping TypeName="CoffeeModel.sysdiagram">
         <MappingFragment StoreEntitySet="sysdiagrams">
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -13,7 +13,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblProducts">
-      <EntityTypeMapping TypeName="CoffeeShopDBModel.tblProduct">
+      <EntityTypeMapping TypeName="CoffeeModel.tblProduct">
         <MappingFragment StoreEntitySet="tblProduct">
           <ScalarProperty Name="ProductID" ColumnName="ProductID" />
           <ScalarProperty Name="ProductType" ColumnName="ProductType" />
@@ -24,7 +24,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblProductTypes">
-      <EntityTypeMapping TypeName="CoffeeShopDBModel.tblProductType">
+      <EntityTypeMapping TypeName="CoffeeModel.tblProductType">
         <MappingFragment StoreEntitySet="tblProductType">
           <ScalarProperty Name="ProductType" ColumnName="ProductType" />
           <ScalarProperty Name="Description" ColumnName="Description" />
@@ -32,7 +32,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblTransactions">
-      <EntityTypeMapping TypeName="CoffeeShopDBModel.tblTransaction">
+      <EntityTypeMapping TypeName="CoffeeModel.tblTransaction">
         <MappingFragment StoreEntitySet="tblTransaction">
           <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
           <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
@@ -40,7 +40,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tblTransactionItems">
-      <EntityTypeMapping TypeName="CoffeeShopDBModel.tblTransactionItem">
+      <EntityTypeMapping TypeName="CoffeeModel.tblTransactionItem">
         <MappingFragment StoreEntitySet="tblTransactionItem">
           <ScalarProperty Name="TransactionItemID" ColumnName="TransactionItemID" />
           <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
@@ -48,5 +48,29 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="CoffeeModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="CoffeeModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="CoffeeModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="CoffeeModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CoffeeModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="CoffeeModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CoffeeModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="CoffeeModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="CoffeeModel.Store.sp_upgraddiagrams" />
   </EntityContainerMapping>
 </Mapping>

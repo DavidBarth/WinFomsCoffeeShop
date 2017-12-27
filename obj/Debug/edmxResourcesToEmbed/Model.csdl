@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CoffeeShopDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tblProduct">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductType" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Image" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="tblProductType" Relationship="Self.FK_tblProduct_tblProductType" FromRole="tblProduct" ToRole="tblProductType" />
+    <NavigationProperty Name="tblTransactionItems" Relationship="Self.FK_tblTransactionItem_tblProduct" FromRole="tblProduct" ToRole="tblTransactionItem" />
+  </EntityType>
+  <EntityType Name="tblProductType">
+    <Key>
+      <PropertyRef Name="ProductType" />
+    </Key>
+    <Property Name="ProductType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblProducts" Relationship="Self.FK_tblProduct_tblProductType" FromRole="tblProductType" ToRole="tblProduct" />
+  </EntityType>
+  <EntityType Name="tblTransaction">
+    <Key>
+      <PropertyRef Name="TransactionID" />
+    </Key>
+    <Property Name="TransactionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransactionDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="tblTransactionItems" Relationship="Self.FK_tblTransactionItem_tblTransaction" FromRole="tblTransaction" ToRole="tblTransactionItem" />
+  </EntityType>
+  <EntityType Name="tblTransactionItem">
+    <Key>
+      <PropertyRef Name="TransactionItemID" />
+    </Key>
+    <Property Name="TransactionItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TransactionID" Type="Int32" />
+    <Property Name="ProductID" Type="Int32" />
+    <NavigationProperty Name="tblProduct" Relationship="Self.FK_tblTransactionItem_tblProduct" FromRole="tblTransactionItem" ToRole="tblProduct" />
+    <NavigationProperty Name="tblTransaction" Relationship="Self.FK_tblTransactionItem_tblTransaction" FromRole="tblTransactionItem" ToRole="tblTransaction" />
+  </EntityType>
+  <Association Name="FK_tblProduct_tblProductType">
+    <End Role="tblProductType" Type="Self.tblProductType" Multiplicity="0..1" />
+    <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProductType">
+        <PropertyRef Name="ProductType" />
+      </Principal>
+      <Dependent Role="tblProduct">
+        <PropertyRef Name="ProductType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblTransactionItem_tblProduct">
+    <End Role="tblProduct" Type="Self.tblProduct" Multiplicity="0..1" />
+    <End Role="tblTransactionItem" Type="Self.tblTransactionItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProduct">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="tblTransactionItem">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblTransactionItem_tblTransaction">
+    <End Role="tblTransaction" Type="Self.tblTransaction" Multiplicity="0..1" />
+    <End Role="tblTransactionItem" Type="Self.tblTransactionItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblTransaction">
+        <PropertyRef Name="TransactionID" />
+      </Principal>
+      <Dependent Role="tblTransactionItem">
+        <PropertyRef Name="TransactionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CoffeeShopDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="tblProducts" EntityType="Self.tblProduct" />
+    <EntitySet Name="tblProductTypes" EntityType="Self.tblProductType" />
+    <EntitySet Name="tblTransactions" EntityType="Self.tblTransaction" />
+    <EntitySet Name="tblTransactionItems" EntityType="Self.tblTransactionItem" />
+    <AssociationSet Name="FK_tblProduct_tblProductType" Association="Self.FK_tblProduct_tblProductType">
+      <End Role="tblProductType" EntitySet="tblProductTypes" />
+      <End Role="tblProduct" EntitySet="tblProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblTransactionItem_tblProduct" Association="Self.FK_tblTransactionItem_tblProduct">
+      <End Role="tblProduct" EntitySet="tblProducts" />
+      <End Role="tblTransactionItem" EntitySet="tblTransactionItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblTransactionItem_tblTransaction" Association="Self.FK_tblTransactionItem_tblTransaction">
+      <End Role="tblTransaction" EntitySet="tblTransactions" />
+      <End Role="tblTransactionItem" EntitySet="tblTransactionItems" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

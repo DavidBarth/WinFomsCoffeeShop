@@ -7,7 +7,7 @@ namespace CoffeeShop
 {
     public partial class AddProductForm : Form
     {
-        private CoffeeShopDBEntities _entities = new CoffeeShopDBEntities();
+        private Database _entities = new Database();
 
         private byte[] _dataBlob;
 
@@ -48,9 +48,11 @@ namespace CoffeeShop
             productToSave.Description = DescriptionTextBox.Text;
             productToSave.Price = decimal.Parse(priceTextBox.Text);
             productToSave.Image = _dataBlob;
+          
+
             productToSave.ProductType = (int)categoryCombobox.SelectedValue;
 
-
+          
 
             _entities.tblProducts.Add(productToSave);
             _entities.SaveChanges();

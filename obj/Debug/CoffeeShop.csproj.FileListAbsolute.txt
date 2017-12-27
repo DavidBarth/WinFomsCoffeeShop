@@ -12,5 +12,3 @@ C:\Users\dave\documents\visual studio 2015\Projects\CoffeeShop\obj\Debug\CoffeeS
 C:\Users\dave\documents\visual studio 2015\Projects\CoffeeShop\obj\Debug\CoffeeShop.exe
 C:\Users\dave\documents\visual studio 2015\Projects\CoffeeShop\obj\Debug\CoffeeShop.pdb
 C:\Users\dave\Documents\Visual Studio 2015\Projects\CoffeeShop\obj\Debug\CoffeeShop.AddProductForm.resources
-C:\Users\dave\Documents\Visual Studio 2015\Projects\CoffeeShop\bin\Debug\CoffeeShopDB.mdf
-C:\Users\dave\Documents\Visual Studio 2015\Projects\CoffeeShop\bin\Debug\CoffeeShopDB_log.ldf
