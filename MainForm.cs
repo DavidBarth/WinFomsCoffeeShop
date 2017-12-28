@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+﻿using CoffeeShop.Forms;
+using System;
 using System.Windows.Forms;
 
 namespace CoffeeShop
@@ -20,6 +15,12 @@ namespace CoffeeShop
         {
             AddProductForm addProductForm = new AddProductForm();
             addProductForm.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ListProductsForm listProductForm = new ListProductsForm();
+            listProductForm.ShowDialog();
         }
     }
 }
