@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CoffeeShop.Forms
@@ -11,6 +12,31 @@ namespace CoffeeShop.Forms
         public ListProductsForm()
         {
             InitializeComponent();
+            PopulateTabs();
+            
+        }
+
+        private void PopulateTabs()
+        {
+            int i = 1;
+            foreach(tblProductType productType in _entities.tblProductTypes)
+            {
+                tabControl1.TabPages.Add(productType.ProductType.ToString(), productType.Description);
+            }
+
+            foreach (TabPage tabPage in tabControl1.TabPages)
+            {
+                var filteredProducts = _entities.tblProducts.Where(p => (int)p.tblProductType.ProductType == i);
+                FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel();
+                flowLayoutPanel.Dock = DockStyle.Fill;
+                foreach(var product in filteredProducts)
+                {
+                    Button flowLayoutPanelButton = new Button();
+                    flowLayoutPanel.Controls.Add(flowLayoutPanelButton);
+                    tabPage.Controls.Add(flowLayoutPanel);
+                }
+                i++;
+            }         
         }
 
         private void ListProductsForm_Load(object sender, EventArgs e)
@@ -32,10 +58,8 @@ namespace CoffeeShop.Forms
             currentDescription += currentDescription.PadRight(30);
             string formattedString = currentDescription + currentPrice;
             e.Value = formattedString;
-            
-
-
-
         }
+
+        
     }
 }
