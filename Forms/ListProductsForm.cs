@@ -68,5 +68,16 @@ namespace CoffeeShop.Forms
             tblProduct product = (tblProduct)chosenProductListBox.SelectedItem;
             _productsList.Remove(product);
         }
+
+        private void calcTotalButton_Click(object sender, EventArgs e)
+        {
+            decimal? total = 0;
+            foreach(var product in _productsList)
+            {
+                total += product.Price;
+            }
+
+            totalTextBox.Text = total.ToString();
+        }
     }
 }
