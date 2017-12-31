@@ -63,6 +63,10 @@ namespace CoffeeShop.Forms
             e.Value = formattedString;
         }
 
-        
+        private void removeItemButton_Click(object sender, EventArgs e)
+        {
+            tblProduct product = (tblProduct)chosenProductListBox.SelectedItem;
+            _productsList.Remove(product);
+        }
     }
 }

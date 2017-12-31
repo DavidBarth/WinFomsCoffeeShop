@@ -30,6 +30,7 @@
         {
             this.chosenProductListBox = new System.Windows.Forms.ListBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.removeItemButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // chosenProductListBox
@@ -49,11 +50,22 @@
             this.tabControl1.Size = new System.Drawing.Size(251, 224);
             this.tabControl1.TabIndex = 1;
             // 
+            // removeItemButton
+            // 
+            this.removeItemButton.Location = new System.Drawing.Point(270, 243);
+            this.removeItemButton.Name = "removeItemButton";
+            this.removeItemButton.Size = new System.Drawing.Size(103, 23);
+            this.removeItemButton.TabIndex = 2;
+            this.removeItemButton.Text = "Remove Item";
+            this.removeItemButton.UseVisualStyleBackColor = true;
+            this.removeItemButton.Click += new System.EventHandler(this.removeItemButton_Click);
+            // 
             // ListProductsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 308);
+            this.ClientSize = new System.Drawing.Size(594, 366);
+            this.Controls.Add(this.removeItemButton);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.chosenProductListBox);
             this.Name = "ListProductsForm";
@@ -66,5 +78,6 @@
 
         private System.Windows.Forms.ListBox chosenProductListBox;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.Button removeItemButton;
     }
 }
