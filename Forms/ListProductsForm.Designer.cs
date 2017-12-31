@@ -58,7 +58,6 @@
             this.Controls.Add(this.chosenProductListBox);
             this.Name = "ListProductsForm";
             this.Text = "ListProductsForm";
-            this.Load += new System.EventHandler(this.ListProductsForm_Load);
             this.ResumeLayout(false);
 
         }
