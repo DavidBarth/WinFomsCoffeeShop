@@ -9,6 +9,17 @@ namespace CoffeeShop.Forms
     {
         private Database _entities = new Database();
         private BindingList<tblProduct> _productsList = new BindingList<tblProduct>();
+
+        private decimal _transactionTotal;
+        public decimal TransactionTotal
+        {
+            get { return _transactionTotal; }
+            set
+            {
+                _transactionTotal = value;
+                totalTextBox.Text = _transactionTotal.ToString();
+            }
+        }
          
         public TillForm()
         {
@@ -51,6 +62,7 @@ namespace CoffeeShop.Forms
             Button button = (Button)sender;
             tblProduct product = (tblProduct)button.Tag;
             _productsList.Add(product);
+            TransactionTotal += (decimal)product.Price;
                          
         }
 
@@ -65,19 +77,22 @@ namespace CoffeeShop.Forms
 
         private void removeItemButton_Click(object sender, EventArgs e)
         {
-            tblProduct product = (tblProduct)chosenProductListBox.SelectedItem;
-            _productsList.Remove(product);
-        }
-
-        private void calcTotalButton_Click(object sender, EventArgs e)
-        {
-            decimal? total = 0;
-            foreach(var product in _productsList)
+            if(chosenProductListBox.SelectedItem == null) 
             {
-                total += product.Price;
+                MessageBox.Show("Product list is empty");
+            }
+            else
+            {
+                var product = chosenProductListBox.SelectedItem as tblProduct;
+                if (product == null) return;
+                if (product.Price.HasValue)
+                {
+                    TransactionTotal -= (decimal)product.Price;
+                    _productsList.Remove(product);
+                }
             }
 
-            totalTextBox.Text = total.ToString();
         }
+
     }
 }

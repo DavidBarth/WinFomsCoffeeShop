@@ -78,7 +78,6 @@
             this.calcTotalButton.TabIndex = 4;
             this.calcTotalButton.Text = "Calculate Total";
             this.calcTotalButton.UseVisualStyleBackColor = true;
-            this.calcTotalButton.Click += new System.EventHandler(this.calcTotalButton_Click);
             // 
             // ListProductsForm
             // 
