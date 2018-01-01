@@ -5,7 +5,7 @@ namespace CoffeeShop.Forms
 {
     public partial class PayForm : Form
     {
-        private decimal _transactionTotal;
+        private const int _nullAmount = 0;
 
         public PayForm()
         {
@@ -16,18 +16,16 @@ namespace CoffeeShop.Forms
         {
             InitializeComponent();
             amountToPayTextBox.ReadOnly = true;
-            this._transactionTotal = transactionTotal;
             amountToPayTextBox.Text = transactionTotal.ToString();
         }
 
-        private void button1_Click(object sender, System.EventArgs e)
+        private void okButton_Click(object sender, System.EventArgs e)
         {
             var amountToPay =  Convert.ToDecimal(amountToPayTextBox.Text);
             var paymentAmount = Convert.ToDecimal(paymentAmountTextBox.Text);
-            decimal outstanding = 0;
-            if(paymentAmount > amountToPay)
+            decimal outstanding = amountToPay - paymentAmount;
+            if(outstanding < _nullAmount)
             {
-                outstanding = amountToPay - paymentAmount;
                 outstanding = Math.Abs(outstanding);
                 MessageBox.Show("You've got " + outstanding.ToString() + " change!");
                 paymentAmountTextBox.Text = amountToPayTextBox.Text = 0.ToString();
@@ -35,8 +33,12 @@ namespace CoffeeShop.Forms
             }
             else
             {
-                outstanding = amountToPay - paymentAmount;
                 paymentAmountTextBox.Text = amountToPayTextBox.Text = outstanding.ToString();
+            }
+            
+            if(outstanding == _nullAmount)
+            {
+                MessageBox.Show("Amount fully paid!");
             }
            
 
