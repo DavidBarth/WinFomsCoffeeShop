@@ -96,7 +96,7 @@ namespace CoffeeShop.Forms
 
         private void payButton_Click(object sender, EventArgs e)
         {
-            PayForm payForm = new PayForm();
+            PayForm payForm = new PayForm(TransactionTotal);
             payForm.ShowDialog();
         }
     }
