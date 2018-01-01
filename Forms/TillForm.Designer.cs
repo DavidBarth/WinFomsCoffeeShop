@@ -1,6 +1,6 @@
 ﻿namespace CoffeeShop.Forms
 {
-    partial class ListProductsForm
+    partial class TillForm
     {
         /// <summary>
         /// Required designer variable.

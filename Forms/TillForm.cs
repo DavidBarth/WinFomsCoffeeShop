@@ -5,12 +5,12 @@ using System.Windows.Forms;
 
 namespace CoffeeShop.Forms
 {
-    public partial class ListProductsForm : Form
+    public partial class TillForm : Form
     {
         private Database _entities = new Database();
         private BindingList<tblProduct> _productsList = new BindingList<tblProduct>();
          
-        public ListProductsForm()
+        public TillForm()
         {
             InitializeComponent();
             chosenProductListBox.DataSource = _productsList;

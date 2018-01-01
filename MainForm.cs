@@ -17,10 +17,12 @@ namespace CoffeeShop
             addProductForm.ShowDialog();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+       
+
+        private void button3_Click(object sender, EventArgs e)
         {
-            ListProductsForm listProductForm = new ListProductsForm();
-            listProductForm.ShowDialog();
+            TillForm tillForm = new TillForm();
+            tillForm.ShowDialog();
         }
     }
 }

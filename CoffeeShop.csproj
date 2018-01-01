@@ -91,11 +91,11 @@
     <Compile Include="Forms\AddProductForm.Designer.cs">
       <DependentUpon>AddProductForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ListProductsForm.cs">
+    <Compile Include="Forms\TillForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ListProductsForm.Designer.cs">
-      <DependentUpon>ListProductsForm.cs</DependentUpon>
+    <Compile Include="Forms\TillForm.Designer.cs">
+      <DependentUpon>TillForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -129,8 +129,8 @@
     <EmbeddedResource Include="Forms\AddProductForm.resx">
       <DependentUpon>AddProductForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ListProductsForm.resx">
-      <DependentUpon>ListProductsForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\TillForm.resx">
+      <DependentUpon>TillForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
