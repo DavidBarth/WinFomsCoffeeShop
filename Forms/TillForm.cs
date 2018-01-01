@@ -69,7 +69,7 @@ namespace CoffeeShop.Forms
         private void FormatListItem(object sender, ListControlConvertEventArgs e)
         {
             string currentDescription = ((tblProduct)e.ListItem).Description;
-            string currentPrice =String.Format("{0:c}",((tblProduct)e.ListItem).Price);
+            string currentPrice = String.Format("{0:c}",((tblProduct)e.ListItem).Price);
             currentDescription += currentDescription.PadRight(30);
             string formattedString = currentDescription + currentPrice;
             e.Value = formattedString;
@@ -94,5 +94,10 @@ namespace CoffeeShop.Forms
 
         }
 
+        private void payButton_Click(object sender, EventArgs e)
+        {
+            PayForm payForm = new PayForm();
+            payForm.ShowDialog();
+        }
     }
 }
