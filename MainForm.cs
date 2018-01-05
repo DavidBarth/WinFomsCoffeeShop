@@ -6,6 +6,7 @@ namespace CoffeeShop
 {
     public partial class Form1 : Form
     {
+        //private ContextMenuStrip _contextMenuStrip;
         public Form1()
         {
             InitializeComponent();
@@ -14,17 +15,25 @@ namespace CoffeeShop
 
         private void IntializeContextMenu()
         {
-            ContextMenuStrip contextMenuStrip = new ContextMenuStrip();
-            ToolStripMenuItem toolstripMenuItem = new ToolStripMenuItem("Exit App");
-            toolstripMenuItem.Name = "Exit";
-            contextMenuStrip.Items.Add(toolstripMenuItem);
-            toolstripMenuItem.Click += menuItem_Click;
-            this.ContextMenuStrip = contextMenuStrip;
+            this.ContextMenuStrip = new ContextMenuStrip();
+            ToolStripMenuItem exitMenuItem = new ToolStripMenuItem("Exit App");
+            ToolStripMenuItem timeMenuItem = new ToolStripMenuItem("Get Time");
+
+            this.ContextMenuStrip.Items.Add(exitMenuItem);
+            this.ContextMenuStrip.Items.Add(timeMenuItem);
+
+            exitMenuItem.Click += exitMenuItem_Click;
+            timeMenuItem.Click += timeMenuItem_Click;
         }
 
-        private void menuItem_Click(object sender, EventArgs e)
+        private void exitMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void timeMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(DateTime.Now.ToString());
         }
 
         private void button1_Click(object sender, EventArgs e)
