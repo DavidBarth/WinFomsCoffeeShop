@@ -5,6 +5,7 @@ namespace CoffeeShop.Forms
 {
     public partial class PayForm : Form
     {
+        private const int _nullAmount = 0;
 
         public PayForm()
         {
@@ -22,12 +23,12 @@ namespace CoffeeShop.Forms
         {
             var amountToPay =  Convert.ToDecimal(amountToPayTextBox.Text);
             var paymentAmount = Convert.ToDecimal(paymentAmountTextBox.Text);
-            decimal outstanding = 0;
-            if(amountToPay < paymentAmount)
+            decimal outstanding = _nullAmount;
+            if(paymentAmount >= amountToPay)
             {
                 outstanding = Math.Abs(amountToPay - paymentAmount);
                 MessageBox.Show("You've got " + outstanding.ToString() + " change!");
-                paymentAmountTextBox.Text = amountToPayTextBox.Text = 0.ToString();
+                paymentAmountTextBox.Text = amountToPayTextBox.Text = _nullAmount.ToString();
                 MessageBox.Show("Amount fully paid!");
 
             }
