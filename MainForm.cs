@@ -9,6 +9,22 @@ namespace CoffeeShop
         public Form1()
         {
             InitializeComponent();
+            IntializeContextMenu();
+        }
+
+        private void IntializeContextMenu()
+        {
+            ContextMenuStrip contextMenuStrip = new ContextMenuStrip();
+            ToolStripMenuItem toolstripMenuItem = new ToolStripMenuItem("Exit App");
+            toolstripMenuItem.Name = "Exit";
+            contextMenuStrip.Items.Add(toolstripMenuItem);
+            toolstripMenuItem.Click += menuItem_Click;
+            this.ContextMenuStrip = contextMenuStrip;
+        }
+
+        private void menuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -16,8 +32,6 @@ namespace CoffeeShop
             AddProductForm addProductForm = new AddProductForm();
             addProductForm.ShowDialog();
         }
-
-       
 
         private void button3_Click(object sender, EventArgs e)
         {
