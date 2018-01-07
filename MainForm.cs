@@ -1,4 +1,6 @@
-﻿using CoffeeShop.Forms;
+﻿using CoffeeShop.Enum;
+using CoffeeShop.Forms;
+using CoffeeShop.Model;
 using System;
 using System.Windows.Forms;
 
@@ -6,33 +8,41 @@ namespace CoffeeShop
 {
     public partial class Form1 : Form
     {
-        //private ContextMenuStrip _contextMenuStrip;
+        private UserSimulation UserSimulation;
+
         public Form1()
         {
+            InitUserSimulationClass();
             InitializeComponent();
             IntializeContextMenu();
+            
+        }
+
+        private void InitUserSimulationClass()
+        {
+            UserSimulation = new UserSimulation();
+            UserSimulation.User = new User();
         }
 
         private void IntializeContextMenu()
         {
             this.ContextMenuStrip = new ContextMenuStrip();
-            ToolStripMenuItem exitMenuItem = new ToolStripMenuItem("Exit App");
-            ToolStripMenuItem timeMenuItem = new ToolStripMenuItem("Get Time");
+            ToolStripMenuItem exitMenuItem = new ToolStripMenuItem("Exit App",null, onClick: exitMenuItem_Click);
+            ToolStripMenuItem timeMenuItem = new ToolStripMenuItem("Get Time", null, onClick: timeMenuItem_Click);
 
             this.ContextMenuStrip.Items.Add(exitMenuItem);
             this.ContextMenuStrip.Items.Add(timeMenuItem);
-
-            exitMenuItem.Click += exitMenuItem_Click;
-            timeMenuItem.Click += timeMenuItem_Click;
         }
 
         private void exitMenuItem_Click(object sender, EventArgs e)
         {
+            if(UserSimulation.User.Role == UserRole.Super)
             Application.Exit();
         }
 
         private void timeMenuItem_Click(object sender, EventArgs e)
         {
+            if (!(UserSimulation.User.Role == UserRole.Super))
             MessageBox.Show(DateTime.Now.ToString());
         }
 
